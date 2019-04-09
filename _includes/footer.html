@@ -17,9 +17,25 @@
             <a href="https://www.linkedin.com/in/{{site.linkedIn_username}}" title="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a> {% endif %} {% if site.dribbble_username %}
             <a href=" https://dribbble.com/{{site.dribbble_username}}" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a> {% endif %}
         </p>
-        <p>
-            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-        </p>
+       {% if theme.busuanzi_count.enable %}
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  {% if theme.busuanzi_count.total_visitors %}
+    <span class="site-uv" title="{{ __('footer.total_visitors') }}">
+      <i class="fa fa-{{ theme.busuanzi_count.total_visitors_icon }}"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  {% endif %}
+
+  {% if theme.busuanzi_count.total_views %}
+    <span class="site-pv" title="{{ __('footer.total_views') }}">
+      <i class="fa fa-{{ theme.busuanzi_count.total_views_icon }}"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  {% endif %}
+</div>
+{% endif %}
         <p class="power">
             <span>
                 Site powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://pages.github.com/" target="_blank">Github Pages</a>.
@@ -30,4 +46,4 @@
         </p>
     </div>
 </footer>
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
