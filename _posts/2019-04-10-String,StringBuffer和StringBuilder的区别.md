@@ -8,12 +8,13 @@ author: super-pt
 
 * content
 {:toc}
-
-
 ## 前言
 
   我们在做Java开发中String的使用是非常平凡的，面试时也常常会被问到，那么为什么有了String还会有StringBuffer和StringBuilder呢？
 一个东西他可以存在那么必然有它的意义，这篇文章就会讲述他们的不同。
+
+
+
 
 
 ### 1.了解String、StringBuffer和StringBuilder
