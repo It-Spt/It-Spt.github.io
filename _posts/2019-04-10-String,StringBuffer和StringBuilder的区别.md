@@ -32,7 +32,11 @@ author: super-pt
 
 
 ## 二.String、StringBuffer和StringBuilder的不同
-  这三个最主要的不同有两点，运行速度和线程安全。
+  这三个最主要的不同有两点，```运行速度```和```线程安全```。
 ### 1.运行速度
   ```String```<```StringBuilder```<```StringBuffer```
+  ``String慢的原因``
+  因为String是字符串常量，而后两者是字符串变量。我们看看源码：
+  {% highlight ruby %}
+  {% endhighlight %}
   
