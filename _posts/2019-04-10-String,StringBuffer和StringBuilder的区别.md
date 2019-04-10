@@ -32,4 +32,7 @@ author: super-pt
 
 
 ## 二.String、StringBuffer和StringBuilder的不同
-``` 1.String```
+  这三个最主要的不同有两点，运行速度和线程安全。
+### 1.运行速度
+  ```String```<```StringBuilder```<```StringBuffer```
+  
