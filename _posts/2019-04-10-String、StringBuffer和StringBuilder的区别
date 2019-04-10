@@ -16,8 +16,8 @@ author: super-pt
 ### 1.了解String、StringBuffer和StringBuilder
 {% highlight ruby %}
 1.public final class String implements Serializable, Comparable<String>, CharSequence 
-2.public final class StringBuilder extends AbstractStringBuilder implements Serializable, CharSequence {
-3.public final class StringBuffer extends AbstractStringBuilder implements Serializable, CharSequence {
+2.public final class StringBuilder extends AbstractStringBuilder implements Serializable, CharSequence
+3.public final class StringBuffer extends AbstractStringBuilder implements Serializable, CharSequence
 {% endhighlight %}
   通过上面的源码我们可以看到，他们都是final修饰的，成员方法也都是final修饰符修饰的，使用final修饰的类是不可以被继承，
 方法是不可以重写或重载的。在早期的JVM实现版本中，被final修饰的方法会被转为内嵌调用以提升执行效率。而从Java SE5/6开始，
