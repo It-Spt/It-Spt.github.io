@@ -17,7 +17,7 @@ author: super-pt
 
 
 
-### 1.了解String、StringBuffer和StringBuilder
+## 一.了解String、StringBuffer和StringBuilder
 
 {% highlight ruby %}
 1.public final class String implements Serializable, Comparable<String>, CharSequence 
@@ -31,4 +31,5 @@ author: super-pt
 才将方法设置为final。
 
 
-### 2.String、StringBuffer和StringBuilder的不同
+## 二.String、StringBuffer和StringBuilder的不同
+### 1.String[red]
