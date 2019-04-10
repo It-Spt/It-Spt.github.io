@@ -32,6 +32,4 @@ author: super-pt
 
 
 ## 二.String、StringBuffer和StringBuilder的不同
-` String
-`` String
-``` String
+```1.String
