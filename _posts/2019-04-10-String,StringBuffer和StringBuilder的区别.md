@@ -34,7 +34,7 @@ author: super-pt
 ## 二.String、StringBuffer和StringBuilder的不同
   这三个最主要的不同有两点，```运行速度```和```线程安全```。
 ### 1.运行速度
-  ```String```<```StringBuilder```<```StringBuffer```
+  ```String```<```StringBuffer```<```StringBuilder```
   
   
   
@@ -78,4 +78,73 @@ author: super-pt
    
    
    
-   ```StringBuffer```  vs  ```StringBuilder```
+   
+### 2.线程安全
+```StringBuffer```  vs  ```StringBuilder```
+
+
+
+
+
+   至于StringBuffer和StringBuilder他们的运行速度相关的就要看第二点了，就是关于线程安全的。
+   
+   
+   
+   
+   
+   ```StringBuffer```                                                                                                                  
+  我们先来看看StringBuffer,我们看一下源码：
+  {% highlight ruby %}
+   public synchronized int length() {
+        return this.count;
+    }
+
+    public synchronized int capacity() {
+        return this.value.length;
+    }
+
+    public synchronized void ensureCapacity(int var1) {
+        super.ensureCapacity(var1);
+    }
+
+    public synchronized void trimToSize() {
+        super.trimToSize();
+    }
+  {% endhighlight %}
+  我截取了StringBuffer的部分源码给大家看，很显然大家可以看到synchronized，这个是线程安全的关键字，所以StringBuffer是线程安全的。
+  大家以后要是对字符串有频繁的修改操作，并且是是多线程的情况，我建议大家可以使用StringBuffer，这会是你的代码更加的漂亮。
+  
+  
+  
+  
+  
+  ```StringBuilder```
+   {% highlight ruby %}
+   public StringBuilder() {
+        super(16);
+    }
+
+    public StringBuilder(int var1) {
+        super(var1);
+    }
+
+    public StringBuilder(String var1) {
+        super(var1.length() + 16);
+        this.append(var1);
+    }
+
+    public StringBuilder(CharSequence var1) {
+        this(var1.length() + 16);
+        this.append(var1);
+    }
+  {% endhighlight %}
+ 以上是StringBuilder的部分源码，我们可以看到他使线程不安全的，所以我建议大家在多线程环境下就不要使用了。
+ 
+ 当然也是因为他是线程不安全的，所以运行速度比StringBuffer要快一些。
+ 
+ 
+ ## 三.总结
+ * 当你的字符串频繁修改，或操作的时候就是用StringBuffer/ StringBuilder，否则使用String即可
+ * 当你在多线程的情况下就实用StringBuffer，因为其实线程安全的。
+ * 一般在拼写sql时建议大家使用StringBuffer，可以大大提升代码运行速度
+ 以上就是我对这三者的见解，有什么不对的希望大家指出，我会及时更改，感谢！！！
