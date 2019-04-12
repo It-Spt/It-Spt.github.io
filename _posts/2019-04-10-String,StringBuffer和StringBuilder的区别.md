@@ -147,4 +147,6 @@ author: super-pt
  * 当你的字符串频繁修改，或操作的时候就是用StringBuffer/ StringBuilder，否则使用String即可
  * 当你在多线程的情况下就实用StringBuffer，因为其实线程安全的。
  * 一般在拼写sql时建议大家使用StringBuffer，可以大大提升代码运行速度
+ 
+ 
  以上就是我对这三者的见解，有什么不对的希望大家指出，我会及时更改，感谢！！！
