@@ -38,5 +38,25 @@ author: super-pt
   ``String慢的原因``
   因为String是字符串常量，而后两者是字符串变量。我们看看源码：
   {% highlight ruby %}
+  private final char[] value;
   {% endhighlight %}
-  
+  这是String的源码中的成员，我们可以看到他的value是final修饰的，上面有说说final修饰的是不可变的。
+   {% highlight ruby %}
+  String a = "123";
+  System.out.print(a);
+  a= "456";
+  System.out.print(a);
+  {% endhighlight %}
+  上面这段代码打印的第一个结果是123，第二个是456，这个大家肯定都知道。可是string不是不可变的吗？为什么改变了？
+  ```原因```
+  上面的a只是一个字符串对象的引用，"123"/"456"并没有存到a中，a中保存的只是一个地址，指向的是真正的对象，所以"123"还是没有改变的。
+ {% highlight ruby %}
+  String a = "123";
+  String b = "456";
+  String b += a;
+  System.out.print(b);
+  {% endhighlight %}
+   上面这段代码打印的第一个结果是123456,那String是怎么完成的拼接的呢？
+   实际上最后编译后使用的是StringBuffer 的append方法新建了一个字符串对象。
+   以上就是为什么字符串是最慢的原因了，我们再来看看另外两个。
+   ``StringBuffer vs StringBuilder``
